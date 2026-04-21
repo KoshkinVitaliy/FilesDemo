@@ -1,0 +1,58 @@
+﻿<Window x:Class="FilesDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilesDemo"
+        mc:Ignorable="d"
+        Title="Импорт/Экспорт данных" 
+        Height="500" 
+        Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель кнопок -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button x:Name="btnLoadExcel" 
+                    Content="Загрузить Excel" 
+                    Width="120" 
+                    Margin="0,0,10,0" 
+                    Click="BtnLoadExcel_Click"/>
+            <Button x:Name="btnAddRow" 
+                    Content="Добавить строку" 
+                    Width="120" 
+                    Margin="0,0,10,0" 
+                    Click="BtnAddRow_Click"/>
+            <Button x:Name="btnDeleteRow" 
+                    Content="Удалить выбранную" 
+                    Width="120" Margin="0,0,10,0" 
+                    Click="BtnDeleteRow_Click"/>
+            <Button x:Name="btnSavePdf" 
+                    Content="Сохранить в PDF" 
+                    Width="120" 
+                    Click="BtnSavePdf_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid для отображения и редактирования данных -->
+        <DataGrid x:Name="dataGrid" 
+                  Grid.Row="2" 
+                  AutoGenerateColumns="True" 
+                  CanUserAddRows="True" 
+                  CanUserDeleteRows="True" 
+                  IsReadOnly="False" 
+                  Margin="0,0,0,10"/>
+
+        <!-- Строка состояния -->
+        <StatusBar Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock x:Name="statusText" 
+                           Text="Готов к работе"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
